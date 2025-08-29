@@ -35,6 +35,8 @@ const loveCounter = document.getElementById("loveCounter");
 // call button section 
  let coins = 100;
     const coinDisplay = document.getElementById("coinDisplay");
+    const callHistory = []; 
+    const historyList = document.getElementById("historyList"); 
     for (let i = 1; i <= 9; i++) {
       const btn = document.getElementById("callBtn" + i);
       const CalledNumber = document.getElementById("callednumber"+i);
@@ -44,6 +46,16 @@ const loveCounter = document.getElementById("loveCounter");
         if (coins >= 20) {
           coins -= 20;
           coinDisplay.textContent = coins;
+          const record = `${CalledNumber.textContent}
+          ${textToCopyNew.textContent}  ${new Date().toLocaleTimeString()}`;
+          callHistory.push(record);
+          // 🔹 Update HTML history list
+          const li = document.createElement("li");
+          // li.textContent = record;  // old
+          li.classList.add("flex", "justify-between", "mb-1"); 
+          li.innerHTML = `<div>${CalledNumber.textContent}<br>${textToCopyNew.textContent}</div>
+           <div>${new Date().toLocaleTimeString()}</div>`;
+          historyList.appendChild(li);
           alert( " You are calling "+CalledNumber.textContent +":"+ textToCopyNew.textContent );
         } else {
           alert("Not enough coins");
