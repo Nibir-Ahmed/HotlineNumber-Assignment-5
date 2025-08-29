@@ -49,9 +49,7 @@ const loveCounter = document.getElementById("loveCounter");
           const record = `${CalledNumber.textContent}
           ${textToCopyNew.textContent}  ${new Date().toLocaleTimeString()}`;
           callHistory.push(record);
-          // 🔹 Update HTML history list
           const li = document.createElement("li");
-          // li.textContent = record;  // old
           li.classList.add("flex", "justify-between", "mb-1"); 
           li.innerHTML = `<div>${CalledNumber.textContent}<br>${textToCopyNew.textContent}</div>
            <div>${new Date().toLocaleTimeString()}</div>`;
@@ -62,3 +60,10 @@ const loveCounter = document.getElementById("loveCounter");
         }
       });
     }
+// clear history section 
+const clearBtn = document.getElementById("clearHistoryBtn");
+
+clearBtn.addEventListener("click", function() {
+  callHistory.length = 0; 
+  historyList.innerHTML = ""; 
+});
