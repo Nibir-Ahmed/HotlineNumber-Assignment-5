@@ -46,7 +46,7 @@ const loveCounter = document.getElementById("loveCounter");
           coinDisplay.textContent = coins;
           alert( " You are calling "+CalledNumber.textContent +":"+ textToCopyNew.textContent );
         } else {
-          alert("Not enough coins ❌");
+          alert("Not enough coins");
         }
       });
     }
